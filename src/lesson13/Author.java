@@ -1,5 +1,7 @@
 package lesson13;
 
+import java.util.Objects;
+
 public class Author {
     private String firstName;
     private String lastName;
@@ -8,6 +10,19 @@ public class Author {
 this.firstName=firstName;
 this.lastName=lastName;
     }
-    public String toString(){return "Автор " +firstName +" "+lastName;}
     public String getName(){return firstName+lastName;}
+    @Override
+    public String toString(){return "Автор " +firstName +" "+lastName;}
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Author author = (Author) o;
+        return firstName.equals(author.firstName) && lastName.equals(author.lastName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName);
+    }
 }
