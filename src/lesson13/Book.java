@@ -1,5 +1,7 @@
 package lesson13;
 
+import java.util.Objects;
+
 public class Book {
  private String titleOfTheBook;//название книги
  private Author nameAuthor;    //автор
@@ -11,11 +13,26 @@ public class Book {
   this.yearOfPublication = yearOfPublication;
  }
 
- public String toString() {return titleOfTheBook + " " + nameAuthor + " " + yearOfPublication;}
 public String titleOfTheBook(){return titleOfTheBook;}
  public Author getName(){return nameAuthor;}
  public int getYearOfPublication() {return yearOfPublication;}
  public int setyearOfPublication(int yearOfPublication ){  this.yearOfPublication = yearOfPublication;
  return yearOfPublication;}
+
+ @Override
+ public String toString() {return titleOfTheBook + " " + nameAuthor + " " + yearOfPublication;}
+
+ @Override
+ public boolean equals(Object o) {
+  if (this == o) return true;
+  if (o == null || getClass() != o.getClass()) return false;
+  Book book = (Book) o;
+  return yearOfPublication == book.yearOfPublication && titleOfTheBook.equals(book.titleOfTheBook) && nameAuthor.equals(book.nameAuthor);
+ }
+
+ @Override
+ public int hashCode() {
+  return Objects.hash(titleOfTheBook,nameAuthor,yearOfPublication);
+ }
 }
 
