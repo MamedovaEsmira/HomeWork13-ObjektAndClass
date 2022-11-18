@@ -1,22 +1,40 @@
 import lesson13.Author;
 import lesson13.Book;
+import lesson13.Library;
 
 public class Main {
     public static void main(String[] args) {
-        Author author1=new Author("Aleksandr", " Pushkin");
-        Book book1 = new Book("Ruslan and Lyudmila" , author1,1818 );
-        Author author2= new Author("lev", " Tolstoy");
-        Book book2= new Book("Anna Karenina ",  author2,1873);
-        System.out.println("Автор: " +author1.getName());
-        System.out.println("Название книги: "+book1.titleOfTheBook());
-        System.out.println("Год выпуска книги: "+book1.getYearOfPublication());
-        book1.setyearOfPublication(1823);
-        System.out.println("Год перевыпуска книги: "+book1.getYearOfPublication());
-        System.out.println("Автор: " +author2.getName());
-        System.out.println("Название книги: "+book2.titleOfTheBook());
-        System.out.println("Год выпуска книги: "+book2.getYearOfPublication());
-        book2.setyearOfPublication(1880);
-        System.out.println("Год перевыпуска книги: "+book2.getYearOfPublication());
 
+        System.out.println("Authors:");
+        Author stephenKing = new Author("Stephen", "King");
+        Author stephenKing2 = new Author("Stephen", "King");
+        Author levTolstoy = new Author("Lev", "Tolstoy");
+        System.out.println("Author copies equal: " + stephenKing.equals(stephenKing2));
+        System.out.println("Author copies equal by hashCode: " + (stephenKing.hashCode() == stephenKing2.hashCode()));
+        System.out.println("Authors equal: " + stephenKing.equals(levTolstoy));
+        System.out.println("Authors equal by hashCode: " + (stephenKing.hashCode() == levTolstoy.hashCode()));
+
+        System.out.println(stephenKing);
+        System.out.println(levTolstoy);
+
+        System.out.println("==============================");
+
+        System.out.println("Books:");
+        Book theStand = new Book("The Stand", stephenKing, 1976);
+        Book theStand2 = new Book("The Stand", stephenKing, 1976);
+        Book warAndPeace = new Book("War and Peace", levTolstoy, 1869);
+        System.out.println("Book copies equal: " + theStand.equals(theStand2));
+        System.out.println("Book copies equal by hashCode: " + (theStand.hashCode() == theStand2.hashCode()));
+        System.out.println("Books equal: " + theStand.equals(warAndPeace));
+        System.out.println("Books equal by hashCode: " + (theStand.hashCode() == warAndPeace.hashCode()));
+        System.out.println(theStand);
+        System.out.println(warAndPeace);
+
+        System.out.println("==============================");
+
+        Library library = new Library(2);
+        library.addBook(theStand);
+        library.addBook(warAndPeace);
+        System.out.println(library);
     }
 }
