@@ -1,21 +1,29 @@
 package lesson13;
 
 public class Book {
- private String titleOfTheBook;//название книги
- private Author nameAuthor;    //автор
- private int yearOfPublication; //год публикации
+ private String name;
+ private Author author;
+ private int year;
 
- public Book(String titleOfTheBook, Author nameAuthor, int yearOfPublication) {
-  this.titleOfTheBook = titleOfTheBook;
-  this.nameAuthor = nameAuthor;
-  this.yearOfPublication = yearOfPublication;
+ public Book(String name, Author author, int year) {
+  this.name = name;
+  this.author = author;
+  this.year = year;
  }
 
- public String toString() {return titleOfTheBook + " " + nameAuthor + " " + yearOfPublication;}
-public String titleOfTheBook(){return titleOfTheBook;}
- public Author getName(){return nameAuthor;}
- public int getYearOfPublication() {return yearOfPublication;}
- public int setyearOfPublication(int yearOfPublication ){  this.yearOfPublication = yearOfPublication;
- return yearOfPublication;}
-}
+ public String getName() {
+  return name;
+ }
 
+ public Author getAuthor() {
+  return author;
+ }
+
+ public int getYear() {
+  return year;
+ }
+
+ public void setYear(int year) {
+  this.year = year;
+ }
+}
